@@ -18,4 +18,9 @@ public class MemberServiceImpl implements MemberService {
     public Member findMember(Long memberId) {
         return memberRepository.findById(memberId);
     }
+
+    // 싱글턴 테스트 용도. 한번만 initializing 되는가?
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
+    }
 }

@@ -28,4 +28,9 @@ public class OrderServiceImpl implements OrderService {
 
         return new Order(memberId, itemName, itemPrice, discountPrice); // db에 따로 저장하지 않는다.
     }
+
+    // 싱글턴 테스트 용도. 한번만 initializing 되는가?
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
+    }
 }
