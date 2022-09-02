@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor // 롬복. 필드 중 final이 붙은 필드를 생성자로 만들어줌.
+// @RequiredArgsConstructor // 롬복. 필드 중 final이 붙은 필드를 생성자로 만들어줌.
 public class OrderServiceImpl implements OrderService {
     // private final MemberRepository memberRepository = new MemoryMemberRepository();
     // private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
@@ -19,11 +19,11 @@ public class OrderServiceImpl implements OrderService {
     private final DiscountPolicy discountPolicy;
     // 누군가가 discountPolicy의 구현객체를 대신 생성하고 주입해줘야함.
 
-//    @Autowired
-//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-//        this.memberRepository = memberRepository;
-//        this.discountPolicy = discountPolicy;
-//    }
+    @Autowired
+    public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("mainDiscountPolicy") DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
 
     @Override
