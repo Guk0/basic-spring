@@ -20,7 +20,7 @@ public class OrderServiceImpl implements OrderService {
     // 누군가가 discountPolicy의 구현객체를 대신 생성하고 주입해줘야함.
 
     @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("mainDiscountPolicy") DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
