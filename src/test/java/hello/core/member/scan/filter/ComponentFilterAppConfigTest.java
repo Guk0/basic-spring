@@ -1,4 +1,4 @@
-package hello.core.scan.filter;
+package hello.core.member.scan.filter;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
